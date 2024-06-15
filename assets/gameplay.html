@@ -4,42 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Its Bluff - Start</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style-gameplay.css">
 </head>
 <body>
     <div class="game-container">
         <h1>Players</h1>
-        <ul id="players-list">
-            <!-- Lista de jogadores será inserida aqui -->
-        </ul>
+        <ul id="players-list"></ul>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetchPlayers();
-        });
-
-        async function fetchPlayers() {
-            try {
-                const response = await fetch('http://localhost:8080/players');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const players = await response.json();
-                displayPlayers(players);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        }
-
-        function displayPlayers(players) {
-            const playersList = document.getElementById('players-list');
-            playersList.innerHTML = '';
-            players.forEach(player => {
-                const li = document.createElement('li');
-                li.textContent = `Name: ${player.name} Points: ${player.points}`;
-                playersList.appendChild(li);
-            });
-        }
-    </script>
+    <div class="word-container">
+        <h2 id="word-initial-letter"></h2>
+    </div>
 </body>
 </html>
