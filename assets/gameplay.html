@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Its Bluff - Start</title>
-    <script src="js/script.js"></script>
+    <script src="js/test.js"></script>
     <link rel="stylesheet" href="css/style-gameplay.css">
 </head>
 <body>
@@ -12,9 +12,15 @@
         <h1>Players</h1>
         <ul id="players-list"></ul>
     </div>
-
+ 
     <div class="word-container">
         <h2 id="word-initial-letter"></h2>
+    </div>
+
+    <div class="game-controls">
+        <button onclick="promptAddLetter()">Add Letter</button>
+        <button onclick="promptChallengeBluff()">Is it a bluff?</button>
+        <button onclick="sendPlayerAction('giveup', 1)">Give up</button>
     </div>
 </body>
 </html>
