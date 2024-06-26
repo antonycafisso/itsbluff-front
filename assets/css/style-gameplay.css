@@ -11,6 +11,23 @@
     text-transform: uppercase;
 }
 
+    /* Css para alterar a vez do jogador de um valor booleano para uma imagem mais ilustrativa*/
+    .green-circle, .red-circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 10px;  /* Ajuste conforme necessário */
+    }
+    
+    .green-circle {
+        background-color: green;
+    }
+    
+    .red-circle {
+        background-color: red;
+    }
+
 .main-container {
     height: 100%;
     display: flex;

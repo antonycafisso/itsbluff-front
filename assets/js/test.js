@@ -25,7 +25,19 @@ function displayPlayers(players) {
     playersList.innerHTML = '';
     players.forEach(player => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${player.name} (Points: ${player.points}) (${player.turn})`;
+
+        // Cria o conteúdo textual do item da lista
+        const textContent = document.createTextNode(`${player.name} (Points: ${player.points}) `);
+
+        // Cria o elemento span para o círculo colorido
+        const circle = document.createElement('span');
+        circle.className = player.turn ? 'green-circle' : 'red-circle';
+
+        // Adiciona o conteúdo textual e o círculo ao item da lista
+        listItem.appendChild(textContent);
+        listItem.appendChild(circle);
+
+        // Adiciona o item da lista ao elemento ul
         playersList.appendChild(listItem);
     });
 }
