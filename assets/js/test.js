@@ -25,19 +25,11 @@ function displayPlayers(players) {
     playersList.innerHTML = '';
     players.forEach(player => {
         const listItem = document.createElement('li');
-
-        // Cria o conteúdo textual do item da lista
         const textContent = document.createTextNode(`${player.name} (Points: ${player.points}) `);
-
-        // Cria o elemento span para o círculo colorido
         const circle = document.createElement('span');
         circle.className = player.turn ? 'green-circle' : 'red-circle';
-
-        // Adiciona o conteúdo textual e o círculo ao item da lista
         listItem.appendChild(textContent);
         listItem.appendChild(circle);
-
-        // Adiciona o item da lista ao elemento ul
         playersList.appendChild(listItem);
     });
 }
@@ -70,6 +62,15 @@ function displayWordAndMeaning(word) {
 
     const meaningElement = document.getElementById('word-meaning');
     meaningElement.textContent = truncateText(word.meaning, maxMeaningLength);
+
+        // Mostra o overlay
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+    
+        // Adiciona o evento de clique para recarregar a página
+        overlay.addEventListener('click', () => {
+            location.reload();
+        });
 }
 
 
