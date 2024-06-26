@@ -1,46 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,700&display=swap");
-
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    background: linear-gradient(120deg, #f3f3f1d8, #ffffffda);
-    position: relative;
-}
-
-.word-container{
-    width: 300px; /* Largura da div */
-    height: 200px; /* Altura da div */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.player-container {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: column;
+    /* background-color: chartreuse; */
+    text-transform: uppercase;
 }
 
-.word-container h2{
-    font-size: 75px;
-}
-
-.game-controls{
-    width: 400px; 
-    height: 300px; 
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.main-container {
+    height: 100%;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.game-controls button{
+.main-container-word {
+    width: 50%;
+    height: 175px;
+    /* background-color: red;
+    border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.main-container-buttons {
+    width: 50%;
+    height: 175px;
+    /* background-color: red;
+    border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
+}
+
+.main-container-meaning {
+    width: 50%;
+    height: 140px;
+    /* background-color: red;
+    border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.meaning{
+    text-wrap: nowrap;
 }

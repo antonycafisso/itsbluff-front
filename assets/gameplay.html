@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,27 @@
     <script src="js/test.js"></script>
     <link rel="stylesheet" href="css/style-gameplay.css">
 </head>
+
 <body>
-    <div class="game-container">
+    <div class="player-container">
         <h1>Players</h1>
         <ul id="players-list"></ul>
     </div>
- 
-    <div class="word-container">
-        <h2 id="word-initial-letter"></h2>
-    </div>
+    <div class="main-container">
+        <div class="main-container-meaning">
+            <p id="word-meaning"></p>
+        </div>
+        
+        <div class="main-container-word">
+            <h2 id="word-initial-letter"></h2>
+        </div>
 
-    <div class="game-controls">
-        <button onclick="promptAddLetter()">Add Letter</button>
-        <button onclick="promptChallengeBluff()">Is it a bluff?</button>
-        <button onclick="sendPlayerAction('giveup', 1)">Give up</button>
+        <div class="main-container-buttons">
+            <button class="button" onclick="promptAddLetter()">Add Letter</button>
+            <button class="button" onclick="promptChallengeBluff()">Is it a bluff?</button>
+            <button class="button" onclick="sendPlayerAction('giveup', 1)">Give up</button>
+        </div>
     </div>
 </body>
+
 </html>

@@ -3,6 +3,7 @@ let initialLetter = "";
 let isFirstMove = true;
 let currentWord = '';
 let lastPlayer = '';
+let meaning= '';
 
 // Função para buscar os jogadores
 async function fetchPlayers() {
@@ -43,11 +44,22 @@ async function fetchInitialLetter() {
     }
 }
 
-// Função para exibir a letra inicial na tela
+// Função para exibir a palavara na tela
 function displayWord(word) {
     const wordElement = document.getElementById('word-initial-letter');
     wordElement.textContent = `${word}`;
 }
+
+// Função para exibir o significado e a palavra
+function displayWordAndMeaning(word) {
+    const maxMeaningLength = 200;
+    const wordElement = document.getElementById('word-meaning');
+    wordElement.textContent = `${word.content}`;
+
+    const meaningElement = document.getElementById('word-meaning');
+    meaningElement.textContent = truncateText(word.meaning, maxMeaningLength);
+}
+
 
 // Função para fazer a primeira jogada
 async function makeFirstMove() {
@@ -88,7 +100,6 @@ async function makeFirstMove() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-
         const updatedMove = await response.json();
         currentWord = updatedMove.word.content
         document.getElementById('word-initial-letter').textContent = currentWord;
@@ -144,18 +155,35 @@ function promptAddLetter() {
                 return response.json();
             })
             .then(updatedMove => {
-                currentWord = updatedMove.word.content;
-                // Atualiza a palavra na tela com o conteúdo retornado
-                document.getElementById('word-initial-letter').textContent = currentWord;
-                lastPlayer = updatedMove.playerOption.player;
-                fetchPlayers();
-                displayWord(currentWord)
+                console.log(updatedMove)
+                if (updatedMove.word.exits) {
+                    currentWord = updatedMove.word;
+                    document.getElementById('word-initial-letter').textContent = currentWord.content;
+                    document.getElementById('word-meaning').textContent = currentWord.meaning;
+                    // lastPlayer = updatedMove.playerOption.player;
+                    // fetchPlayers();
+                    displayWordAndMeaning(currentWord);
+                } else {
+                    currentWord = updatedMove.word.content;
+                    document.getElementById('word-initial-letter').textContent = currentWord;
+                    lastPlayer = updatedMove.playerOption.player;
+                    fetchPlayers();
+                    displayWord(currentWord)
+                }
             })
             .catch(error => {
                 console.error('Fetch error:', error);
                 alert('Error adding new letter.');
             });
     }
+}
+
+//Restringir quantidade de caracteres do significado (meaning)
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + '...';
+    }
+    return text;
 }
 
 // Chamada inicial para buscar jogadores e a letra inicial ao carregar a página
