@@ -3,7 +3,7 @@ let initialLetter = "";
 let isFirstMove = true;
 let currentWord = '';
 let meaning = '';
-' '
+
 // Função para buscar os jogadores
 async function fetchPlayers() {
     try {
@@ -47,7 +47,7 @@ async function fetchInitialLetter() {
     }
 }
 
-// Função para exibir a palavara na tela
+// Função para exibir a palavaa na tela
 function displayWord(word) {
     const wordElement = document.getElementById('word-initial-letter');
     wordElement.textContent = `${word}`;
@@ -79,9 +79,40 @@ function truncateText(text, maxLength) {
     return text;
 }
 
+function validatePlayersPoints() {
+    var loser = '';
+    var winner = '';
+    if(players[0].points > players[1].points && players[1].points == 0){
+        loser = players[1];
+        winner = players[0];
+        displayGameResult();
+    }else if (players[1].points > players[0].points && players[0].points == 0){
+        loser = players[0];
+        winner = players[1];
+        displayGameResult("The game is over");
+    }
+}
 
+function displayGameResult(message) {
+    const modal = document.getElementById('game-result-modal');
+    const messageElement = document.getElementById('game-result-message');
+
+    messageElement.textContent = message;
+    modal.style.display = 'block';
+}
+
+
+function closeModal() {
+    const modal = document.getElementById('game-result-modal');
+    modal.style.display = 'none';
+}
+
+function exitGame() {
+    window.close(); // Fecha a janela do navegador
+}
 // Chamada inicial para buscar jogadores e a letra inicial ao carregar a página
-window.onload = function () {
-    fetchPlayers();
+window.onload = async function () {
+    await fetchPlayers();
     fetchInitialLetter();
+    validatePlayersPoints();
 };
