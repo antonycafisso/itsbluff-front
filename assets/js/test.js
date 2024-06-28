@@ -54,7 +54,7 @@ function displayWord(word) {
 }
 
 // Função para exibir o significado e a palavra
-function displayWordAndMeaning(word) {
+function displayWordAndMeaning() {
     const maxMeaningLength = 200;
     const wordElement = document.getElementById('word-meaning');
     wordElement.textContent = `${word.content}`;

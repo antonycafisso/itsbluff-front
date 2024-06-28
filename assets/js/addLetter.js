@@ -44,6 +44,7 @@ async function makeFirstMove() {
         document.getElementById('word-initial-letter').textContent = currentWord;
         displayWord(currentWord);
         window.lastPlayer = updatedMove.playerOption.player;
+        console.log(lastPlayer)
         fetchPlayers();
     } catch (error) {
         console.error('Fetch error:', error);

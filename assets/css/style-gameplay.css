@@ -57,6 +57,7 @@
     justify-content: center;
     align-items: center;
     font-size: 75px;
+    text-wrap: nowrap;
 }
 
 .main-container-buttons {

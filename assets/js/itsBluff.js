@@ -24,16 +24,18 @@ function handledChanllengeBluff(answer) {
         fetchChallenge(move);
         return;
     } else { /* Caso seja inserido qlq resposta diferente de não, ou seja, caso o jogador esteja blefando */
-        fetchChallengeFail(swapPlayerCreateJson());
+        const moveReturn = fetchChallengeFail(CreateJsonWordNotExists())
+        console.log(moveReturn);
+        displayWordAndMeaningBluff();
     }
 }
 
-function swapPlayerCreateJson() {
+function CreateJsonWordNotExists() {
     if (window.lastPlayer.id == 1) {
         const swapPlayer = {
             "playerOption": {
                 "player": {
-                    "id": 2,
+                    "id": 1,
                     "name": null,
                     "turn": null,
                     "points": null
@@ -46,12 +48,13 @@ function swapPlayerCreateJson() {
                 "content": "0"
             }
         }
+        console.log(swapPlayer);
         return swapPlayer;
     }
     const swapPlayer = {
         "playerOption": {
             "player": {
-                "id": 1,
+                "id": 2,
                 "name": null,
                 "turn": null,
                 "points": null
@@ -129,4 +132,23 @@ async function fetchChallengeFail(move) {
         console.error('Fetch error:', error);
         alert('Error to challenge.');
     }
+}
+
+function displayWordAndMeaningBluff() {
+    const maxMeaningLength = 200;
+    const wordElement = document.getElementById('word-meaning');
+    const initialLetterElement = document.getElementById('word-initial-letter');
+
+    // Definindo os textos desejados diretamente
+    wordElement.textContent = "-";
+    initialLetterElement.textContent = "WORD NOT FOUND";
+
+    // Mostra o overlay
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+
+    // Adiciona o evento de clique para recarregar a página
+    overlay.addEventListener('click', () => {
+        location.reload();
+    });
 }
