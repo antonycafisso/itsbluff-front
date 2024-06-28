@@ -62,11 +62,9 @@ function displayWordAndMeaning() {
     const meaningElement = document.getElementById('word-meaning');
     meaningElement.textContent = truncateText(word.meaning, maxMeaningLength);
 
-    // Mostra o overlay
     const overlay = document.getElementById('overlay');
     overlay.style.display = 'block';
 
-    // Adiciona o evento de clique para recarregar a página
     overlay.addEventListener('click', () => {
         location.reload();
     });
