@@ -96,6 +96,7 @@ function promptAddLetter() {
                 return response.json();
             })
             .then(updatedMove => {
+                console.log(updatedMove.word);
                 if (updatedMove.word.exits) {
                     currentWord = updatedMove.word;
                     document.getElementById('word-initial-letter').textContent = currentWord.content;

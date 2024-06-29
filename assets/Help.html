@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1>Regras do Jogo</h1>
+    <p>
+        Assim que iniciado, o jogo disponibilizará aos jogadores uma letra gerada aleatoriamente. O jogador da vez terá
+        3 opções:
+    <ul>
+        <li>Inserir uma nova letra: Permite ao usuário inserir uma nova letra do lado direito ou esquerdo da já
+            existente, sem que a junção dessas forme uma palavra em inglês.</li>
+        <li>Alegar blefe: De acordo com as inserções feitas, caso o jogador da vez entenda que a palavra formada não
+            possa formar uma palavra existente na língua inglesa e apenas foi uma alternativa de seu oponente, ele pode
+            questionar se o mesmo blefou ou não.</li>
+        <li>Desistir: O jogador não encontra alternativas a partir da junção das letras, por exemplo: caso insira uma
+            nova letra uma palavra será formada e, portanto, afirmar que o oponente blefou também não é uma opção.</li>
+    </ul>
+    <p>A cada letra inserida uma API será consultada, com intuito de validar se a combinação de letras forma uma palavra
+        real da língua inglesa. Caso esta validação pela API retorne que uma palavra foi formada, será apresentado aos
+        usuários o significado.</p>
+    <br><br>
+    <p>Haverá um sistema de pontuação regressivo, ou seja, os jogadores iniciarão a partida com uma determinada
+        quantidade
+        de pontos e com o decorrer terão seus pontos decrementados, assim o vencedor será o único restante.</p>
+    <br><br>
+    <p>O sistema de pontuação ocorrerá da seguinte maneira:</p>
+    <ul>
+        <li>Cada jogador iniciará o jogo com 5 pontos.</li>
+        <li>Desistência: Caso o jogador opte por desistir, perderá apenas um ponto.</li>
+        <li>Blefe: Caso um dos oponentes desafie o outro alegando blefe e este esteja realmente blefando, o jogador que
+            blefou perderá 2 pontos. Caso contrário, o jogador que desafiou perderá um ponto.</li>
+    </ul>
+</body>
+
+</html>
